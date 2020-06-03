@@ -27,4 +27,11 @@ module.exports = {
     ],
     'import/refer-defaul-export': 'off',
   },
+  settings: {
+    "import/resolver": {
+      "babel-plugin-root-import": {
+        rootPathSuffix: "src"
+      }
+    }
+  },
 };

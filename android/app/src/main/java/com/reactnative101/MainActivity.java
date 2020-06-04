@@ -1,4 +1,4 @@
-package com.reactnative101;
+package com.goBarber;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -14,7 +14,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "reactnative101";
+    return "goBarber";
   }
 
   @Override

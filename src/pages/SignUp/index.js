@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Image } from 'react-native';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import logo from '~/assets/logo.png';
 
@@ -26,6 +26,8 @@ const SignUp = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassowrd] = useState('');
   const [name, setName] = useState('');
+
+  const loading = useSelector((state) => state.auth.loading);
 
   function handleSubmit() {
     console.tron.log(name, email, password);
@@ -69,7 +71,9 @@ const SignUp = ({ navigation }) => {
             onChangeText={setPassowrd}
           />
 
-          <SubmitButton onPress={handleSubmit}>Criar conta</SubmitButton>
+          <SubmitButton loading={loading} onPress={handleSubmit}>
+            Criar conta
+          </SubmitButton>
 
           <SignLink
             onPress={() => {

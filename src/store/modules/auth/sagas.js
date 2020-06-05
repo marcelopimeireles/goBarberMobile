@@ -18,7 +18,7 @@ export function* signIn({ payload }) {
     const { token, user } = response.data;
 
     if (user.provider) {
-      Alert.error(
+      Alert.alert(
         'Erro no login',
         'O usuário não pode ser prestador de serviços'
       );
@@ -30,7 +30,7 @@ export function* signIn({ payload }) {
 
     // history.push('/dashboard');
   } catch (err) {
-    Alert.error(
+    Alert.alert(
       'Falha na autenticação',
       'Houve um erro no login, verifique os seus dados'
     );
@@ -50,7 +50,7 @@ export function* signUp({ payload }) {
 
     // history.push('/');
   } catch (err) {
-    Alert.error(
+    Alert.alert(
       'Falha no cadastro',
       'Houve um erro no cadastro, verifique os seus dados'
     );

@@ -1,9 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Image } from 'react-native';
+import { useDispatch } from 'react-redux';
 
 import logo from '~/assets/logo.png';
 
 import { Background } from '~/components/Background';
+import { signUpRequest } from '~/store/modules/auth/actions';
 // import Input from '~/components/Input';
 // import Button from '~/components/Button';
 
@@ -17,10 +19,18 @@ import {
 } from './styles';
 
 const SignUp = ({ navigation }) => {
+  const dispatch = useDispatch();
   const emailRef = useRef();
   const passwordRef = useRef();
 
-  const handleSubmit = () => {};
+  const [email, setEmail] = useState('');
+  const [password, setPassowrd] = useState('');
+  const [name, setName] = useState('');
+
+  function handleSubmit() {
+    console.tron.log(name, email, password);
+    dispatch(signUpRequest(name, email, password));
+  }
   return (
     <Background>
       <Container>
@@ -29,30 +39,37 @@ const SignUp = ({ navigation }) => {
           <FormInput
             icon="person-outline"
             autoCorrect={false}
-            autoCapite="none"
+            autoCapitalize="none"
             placeholder="Nome Completo"
             returnKeyType="next"
             onSubmitEditing={() => emailRef.current.focus()}
+            value={name}
+            onChangeText={setName}
           />
           <FormInput
             icon="mail-outline"
             keyboardType="email-address"
             autoCorrect={false}
-            autoCapite="none"
+            autoCapitalize="none"
             placeholder="De seu e-mail"
             returnKeyType="next"
             onSubmitEditing={() => passwordRef.current.focus()}
+            value={email}
+            onChangeText={setEmail}
           />
           <FormInput
             icon="lock-outline"
-            secureTextEnry
+            secureTextEntry
+            autoCapitalize="none"
             placeholder="Sua senha secreta"
             ref={passwordRef}
             returnKeyType="send"
             onSubmitEditing={handleSubmit}
+            value={password}
+            onChangeText={setPassowrd}
           />
 
-          <SubmitButton onPress={handleSubmit}>Acessar</SubmitButton>
+          <SubmitButton onPress={handleSubmit}>Criar conta</SubmitButton>
 
           <SignLink
             onPress={() => {

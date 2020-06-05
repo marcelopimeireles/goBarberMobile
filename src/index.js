@@ -1,30 +1,22 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { PersistGate } from 'redux-persist/integration/react';
+import { Provider } from 'react-redux';
+import { StatusBar } from 'react-native';
 
-import './config/ReactotronConfig';
+import '~/config/ReactotronConfig';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f5fcFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-});
+import bundle from '~/store';
+import App from '~/App';
 
-console.tron.warn('Hello World');
-
-const App = () => {
+const Index = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.welcome}>Welcome to React Native!</Text>
-    </View>
+    <Provider store={bundle.store}>
+      <PersistGate persistor={bundle.persistor}>
+        <StatusBar barStyle="light-content" backgroundColor="#7159c1" />
+        <App />
+      </PersistGate>
+    </Provider>
   );
 };
 
-export default App;
+export default Index;

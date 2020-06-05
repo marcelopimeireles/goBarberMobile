@@ -44,8 +44,8 @@ def flipper_post_install(installer)
   end
 end
 
-target 'reactnative101' do
-  # Pods for reactnative101
+target 'goBarber' do
+  # Pods for goBarber
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -77,7 +77,7 @@ target 'reactnative101' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  target 'reactnative101Tests' do
+  target 'goBarberTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -94,10 +94,10 @@ target 'reactnative101' do
   end
 end
 
-target 'reactnative101-tvOS' do
-  # Pods for reactnative101-tvOS
+target 'goBarber-tvOS' do
+  # Pods for goBarber-tvOS
 
-  target 'reactnative101-tvOSTests' do
+  target 'goBarber-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
